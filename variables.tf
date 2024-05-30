@@ -10,8 +10,6 @@ variable "region" {
   type        = string
 }
 
-##### SSM VPC #####
-
 variable "ssm_vpc_id" {
   description = "O ID da VPC onde os recursos relacionados ao SSM serão criados."
   type        = string
@@ -109,4 +107,12 @@ variable "cluster_spot_max_size" {
 variable "cluster_spot_desired_size" {
   description = "O número desejado de instâncias spot no cluster ECS."
   type        = number
+}
+
+variable "capacity_providers" {
+  type = list
+  description = "A lista dos capacity providers que serão permitidos no cluster fargate"
+  default = [
+    "FARGATE", "FARGATE_SPOT"
+  ]
 }
