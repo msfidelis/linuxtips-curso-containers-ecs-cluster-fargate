@@ -21,3 +21,9 @@ resource "aws_ssm_parameter" "lb_internal_listener" {
   value = aws_lb_listener.internal.arn
   type  = "String"
 }
+
+resource "aws_ssm_parameter" "cloudmap" {
+  name  = "/linuxtips/ecs/cloudmap/namespace"
+  value = aws_service_discovery_private_dns_namespace.main.id
+  type  = "String"
+}
